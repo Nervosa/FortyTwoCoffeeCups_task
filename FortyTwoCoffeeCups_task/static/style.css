@@ -1,0 +1,19 @@
+#main {
+    float: left;
+    width: 100%;
+    border: solid 1px black;
+}
+
+.left {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 45%;
+
+}
+
+.right {
+    float: right;
+    margin-right: 10px;
+    width: 50%;
+}
