@@ -1,13 +1,13 @@
 MANAGE=django-admin.py
 
 test:
-	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=settings $(MANAGE)  test FortyTwoCoffeeCups
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=FortyTwoCoffeeCups_task.settings $(MANAGE)  test FortyTwoCoffeeCups
 
 run:
-	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=settings $(MANAGE)  runserver
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=FortyTwoCoffeeCups_task.settings $(MANAGE)  runserver
 
 syncdb:
-	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=settings $(MANAGE)  syncdb --noinput
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=FortyTwoCoffeeCups_task.settings $(MANAGE)  syncdb --noinput
 
 loaddata:
-	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=settings $(MANAGE)  loaddata fixtures/initial_data.json
+	PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=FortyTwoCoffeeCups_task.settings $(MANAGE)  loaddata fixtures/initial_data.json
