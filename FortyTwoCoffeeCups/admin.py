@@ -1,3 +1,5 @@
 from django.contrib import admin
+from FortyTwoCoffeeCups.models import PersonBio
 
-# Register your models here.
+
+admin.site.register(PersonBio)

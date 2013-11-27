@@ -28,6 +28,8 @@ ALLOWED_HOSTS = []
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
 
+FIXTURE_DIRS = (os.path.join(os.path.dirname(__file__), 'fixtures').replace('\\','/'),)
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -40,6 +42,7 @@ INSTALLED_APPS = (
     'FortyTwoCoffeeCups',
     'django.contrib.admin',
     'south',
+    'annoying',
 )
 
 MIDDLEWARE_CLASSES = (
