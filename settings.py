@@ -53,9 +53,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'FortyTwoCoffeeCups_task.urls'
+ROOT_URLCONF = 'urls'
 
-WSGI_APPLICATION = 'FortyTwoCoffeeCups_task.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
