@@ -30,7 +30,6 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\
 
 FIXTURE_DIRS = (os.path.join(os.path.dirname(__file__), 'fixtures').replace('\\','/'),)
 
-# Application definition
 
 INSTALLED_APPS = (
     'django.contrib.admin',
