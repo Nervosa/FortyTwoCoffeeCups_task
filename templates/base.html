@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="{% get_static_prefix %}css/style.css">
+<link rel="stylesheet" href="{% static "style.css" %}">
 <h1>{{ message }}</h1>
 {% if persons %}
     {% for person in persons %}
@@ -39,3 +39,4 @@
 {% else %}
 <h3>No BIOs available.</h3>
 {% endif %}
+<a href="{% url 'FortyTwoCoffeeCups.views.show_requests' %}">requests</a>

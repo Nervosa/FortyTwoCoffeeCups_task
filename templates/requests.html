@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<table border="1">
+    {% for request in last_10_requests %}
+    <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.server_name }}</td>
+            <td>{{ request.server_port }}</td>
+            <td>{{ request.other_info|slice:":20" }}...</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

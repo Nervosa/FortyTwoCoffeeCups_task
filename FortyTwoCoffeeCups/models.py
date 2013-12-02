@@ -13,3 +13,9 @@ class PersonBio(models.Model):
 
     def __unicode__(self):
         return self.name + " " + self.surname
+
+class Http_Request_for_DB(models.Model):
+
+    server_name = models.CharField(max_length=100)
+    server_port = models.CharField(max_length=15)
+    other_info = models.CharField(max_length=5000)

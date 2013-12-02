@@ -30,7 +30,6 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\
 
 FIXTURE_DIRS = (os.path.join(os.path.dirname(__file__), 'fixtures').replace('\\','/'),)
 
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'FortyTwoCoffeeCups.c_middleware.HttpRequestStoringMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -84,5 +84,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+
+# STATIC_ROOT = '/home/nervosa/DjangoProjects/FortyTwoCoffeeCups/FortyTwoCoffeeCups_task/static'
 
 STATIC_URL = '/static/'
