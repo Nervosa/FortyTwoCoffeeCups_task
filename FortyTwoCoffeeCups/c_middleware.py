@@ -1,5 +1,6 @@
 from models import Http_Request_for_DB
 
+
 class HttpRequestStoringMiddleware(object):
 
     def process_request(self, request):

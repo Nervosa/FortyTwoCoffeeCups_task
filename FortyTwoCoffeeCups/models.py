@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class PersonBio(models.Model):
 
     name = models.CharField(max_length=50)
@@ -13,6 +14,7 @@ class PersonBio(models.Model):
 
     def __unicode__(self):
         return self.name + " " + self.surname
+
 
 class Http_Request_for_DB(models.Model):
 

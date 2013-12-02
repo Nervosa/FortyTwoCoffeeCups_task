@@ -17,11 +17,9 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'FortyTwoCoffeeCups', ['Http_Request_for_DB'])
 
-
     def backwards(self, orm):
         # Deleting model 'Http_Request_for_DB'
         db.delete_table(u'FortyTwoCoffeeCups_http_request_for_db')
-
 
     models = {
         u'FortyTwoCoffeeCups.http_request_for_db': {

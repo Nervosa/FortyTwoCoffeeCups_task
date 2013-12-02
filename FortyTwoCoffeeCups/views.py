@@ -10,6 +10,7 @@ def home(request):
             'persons': persons,
             }
 
+
 @render_to("requests.html")
 def show_requests(request):
     quantity = Http_Request_for_DB.objects.all().count()

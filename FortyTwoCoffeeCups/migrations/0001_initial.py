@@ -5,7 +5,6 @@ from south.v2 import SchemaMigration
 from django.db import models
 
 
-
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
@@ -23,11 +22,9 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'FortyTwoCoffeeCups', ['PersonBio'])
 
-
     def backwards(self, orm):
         # Deleting model 'PersonBio'
         db.delete_table(u'FortyTwoCoffeeCups_personbio')
-
 
     models = {
         u'FortyTwoCoffeeCups.personbio': {

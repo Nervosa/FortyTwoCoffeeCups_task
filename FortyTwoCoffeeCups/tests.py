@@ -2,6 +2,7 @@ from django.test import TestCase
 from FortyTwoCoffeeCups.models import PersonBio
 from django.core.urlresolvers import reverse
 
+
 class PersonBioTest(TestCase):
 
     def test_homepage(self):

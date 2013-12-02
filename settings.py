@@ -26,9 +26,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),)
 
-FIXTURE_DIRS = (os.path.join(os.path.dirname(__file__), 'fixtures').replace('\\','/'),)
+FIXTURE_DIRS = (os.path.join(os.path.dirname(__file__), 'fixtures').replace('\\', '/'),)
 
 INSTALLED_APPS = (
     'django.contrib.admin',
