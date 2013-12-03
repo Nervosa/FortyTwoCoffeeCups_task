@@ -1,3 +1,4 @@
+from django.template import Template
 from django.test import TestCase
 from FortyTwoCoffeeCups.models import PersonBio, Http_Request_for_DB
 from django.core.urlresolvers import reverse
@@ -30,3 +31,10 @@ class PersonBioTest(TestCase):
         response = c.post('/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com'), True)
+
+    def test_custom_context_processor(self):
+        t = Template('{% if all_settings.DEBUG %}WE ARE USING DEBUG MODE{% else %}WE DO NOT USE DEBUG MODE{% endif %}')
+        try:
+            self.assertContains(t.render(), 'WE ARE USING DEBUG MODE')
+        except:
+            self.assertContains(t.render(), 'WE DO NOT USE DEBUG MODE')
