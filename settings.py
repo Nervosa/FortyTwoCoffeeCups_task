@@ -1,4 +1,5 @@
 """
+
 Django settings for FortyTwoCoffeeCups_task project.
 
 For more information on this file, see
