@@ -30,4 +30,4 @@ class PersonBioTest(TestCase):
         response = c.post('/')
         self.assertEqual(response.status_code, 200)
         test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
-        self.assertEqual(test_request.id, 1)
+        self.assertEqual(test_request[0].id, 1)
