@@ -37,6 +37,6 @@ class PersonBioTest(TestCase):
         t = Template('{% if all_settings.DEBUG %}WE ARE USING DEBUG MODE{% else %}WE DO NOT USE DEBUG MODE{% endif %}')
         c = Context({})
         try:
-            self.assertContains(t.render(c), 'WE ARE USING DEBUG MODE')
+            self.assertEqual(t.render(c), 'WE ARE USING DEBUG MODE')
         except:
-            self.assertContains(t.render(c), 'WE DO NOT USE DEBUG MODE')
+            self.assertEqual(t.render(c), 'WE DO NOT USE DEBUG MODE')
