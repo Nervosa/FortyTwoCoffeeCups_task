@@ -17,3 +17,13 @@
     margin-right: 10px;
     width: 50%;
 }
+
+#photo {
+    width: 250px;
+    height: 250px;
+}
+
+div > img {
+    max-height: 100%;
+    max-width: 100%;
+}

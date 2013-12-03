@@ -13,6 +13,6 @@ def home(request):
 
 @render_to("requests.html")
 def show_requests(request):
-    quantity = Http_Request_for_DB.objects.all().count()
-    last_10_requests = Http_Request_for_DB.objects.all()[quantity-10:quantity]
+    # quantity = Http_Request_for_DB.objects.all().count()
+    last_10_requests = Http_Request_for_DB.objects.all()[0:9]
     return {'last_10_requests': last_10_requests }
