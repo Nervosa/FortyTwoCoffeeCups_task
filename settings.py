@@ -102,3 +102,8 @@ USE_TZ = True
 # STATIC_ROOT = '/home/nervosa/DjangoProjects/FortyTwoCoffeeCups/FortyTwoCoffeeCups_task/static'
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/home/nervosa/DjangoProjects/FortyTwoCoffeeCups/FortyTwoCoffeeCups_task/FortyTwoCoffeeCups/media/'
+
+MEDIA_URL = '/media/'
+
