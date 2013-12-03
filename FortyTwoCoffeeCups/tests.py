@@ -1,4 +1,4 @@
-from django.template import Template
+from django.template import Template, Context
 from django.test import TestCase
 from FortyTwoCoffeeCups.models import PersonBio, Http_Request_for_DB
 from django.core.urlresolvers import reverse
@@ -35,7 +35,8 @@ class PersonBioTest(TestCase):
 
     def test_custom_context_processor(self):
         t = Template('{% if all_settings.DEBUG %}WE ARE USING DEBUG MODE{% else %}WE DO NOT USE DEBUG MODE{% endif %}')
+        c = Context({})
         try:
-            self.assertContains(t.render({}), 'WE ARE USING DEBUG MODE')
+            self.assertContains(t.render(c), 'WE ARE USING DEBUG MODE')
         except:
-            self.assertContains(t.render({}), 'WE DO NOT USE DEBUG MODE')
+            self.assertContains(t.render(c), 'WE DO NOT USE DEBUG MODE')
