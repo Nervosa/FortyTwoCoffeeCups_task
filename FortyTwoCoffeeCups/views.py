@@ -2,7 +2,7 @@ from models import PersonBio, Http_Request_for_DB
 from annoying.decorators import render_to
 
 
-@render_to("base.html")
+@render_to("index.html")
 def home(request):
     persons = PersonBio.objects.all()
     message = '42 Coffee Cups Test Assignment.'
