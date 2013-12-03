@@ -1,6 +1,7 @@
 from django.test import TestCase
-from FortyTwoCoffeeCups.models import PersonBio
+from FortyTwoCoffeeCups.models import PersonBio, Http_Request_for_DB
 from django.core.urlresolvers import reverse
+from django.test import Client
 
 
 class PersonBioTest(TestCase):
@@ -23,3 +24,10 @@ class PersonBioTest(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'TestJabber@jabber.co')
+
+    def test_custom_middleware(self):
+        c = Client(SERVER_NAME='GetBarista.com')
+        response = c.post('/')
+        self.assertEqual(response.status_code, 200)
+        test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
+        self.assertEqual(test_request.id, 1)
