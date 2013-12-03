@@ -30,11 +30,12 @@ class PersonBioTest(TestCase):
         c = Client(SERVER_NAME='GetBarista.com')
         response = c.post('/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com'), True)
+        test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
+        self.assertEqual(test_request[0].id, 1)
 
     def test_custom_context_processor(self):
         t = Template('{% if all_settings.DEBUG %}WE ARE USING DEBUG MODE{% else %}WE DO NOT USE DEBUG MODE{% endif %}')
         try:
-            self.assertContains(t.render(), 'WE ARE USING DEBUG MODE')
+            self.assertContains(t.render({}), 'WE ARE USING DEBUG MODE')
         except:
-            self.assertContains(t.render(), 'WE DO NOT USE DEBUG MODE')
+            self.assertContains(t.render({}), 'WE DO NOT USE DEBUG MODE')
