@@ -29,14 +29,14 @@ class PersonBioTest(TestCase):
     def test_custom_middleware(self):
         url = reverse("home")
         c = Client(SERVER_NAME='GetBarista.com')
-        response = c.post(url) # making POST request 1 time
+        response = c.post(url)
         self.assertEqual(response.status_code, 200)
         test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
         self.assertEqual(test_request[0].id, 1)
 
         url = reverse("requests")
         for i in range(0,5):
-            response = c.post(url) # making POST request 4 times
+            response = c.post(url) # making POST request 5 times
         occurences = string.count(str(response.__dict__), 'GetBarista.com')
 
         self.assertEqual(occurences, 5) # totally 5 occurences should we have on a page displaying requests
