@@ -50,6 +50,5 @@ class PersonBioTest(TestCase):
     def test_custom_context_processor(self):
         c = Client()
         url = reverse("home")
-        response = c.post(url)
-
-        self.assertContains(response, 'all_settings')
+        response = c.get(url)
+        self.assertContains(response, 'all_settings.DEBUG')
