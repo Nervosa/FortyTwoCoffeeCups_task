@@ -2,6 +2,7 @@ from django.test import TestCase
 from FortyTwoCoffeeCups.models import PersonBio, Http_Request_for_DB
 from django.core.urlresolvers import reverse
 from django.test import Client
+import string
 
 
 class PersonBioTest(TestCase):
@@ -26,8 +27,17 @@ class PersonBioTest(TestCase):
         self.assertContains(response, 'TestJabber@jabber.co')
 
     def test_custom_middleware(self):
+        url = reverse("home")
         c = Client(SERVER_NAME='GetBarista.com')
-        response = c.post('/')
+        response = c.post(url) # making POST request 1 time
         self.assertEqual(response.status_code, 200)
         test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
         self.assertEqual(test_request[0].id, 1)
+
+        url = reverse("show_requests")
+        for i in range(0,4):
+            response = c.post(url) # making POST request 4 times
+        occurences = string.count(str(response.__dict__), 'GetBarista.com')
+
+        self.assertEqual(occurences, 5) # totally 5 occurences should we have on a page displaying requests
+        # self.assertContains(response, 'GetBarista.com')
