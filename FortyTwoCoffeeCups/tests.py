@@ -35,9 +35,14 @@ class PersonBioTest(TestCase):
         self.assertEqual(test_request[0].id, 1)
 
         url = reverse("requests")
-        for i in range(0,4):
+        for i in range(0,5):
             response = c.post(url) # making POST request 4 times
         occurences = string.count(str(response.__dict__), 'GetBarista.com')
 
         self.assertEqual(occurences, 5) # totally 5 occurences should we have on a page displaying requests
-        # self.assertContains(response, 'GetBarista.com')
+
+        for i in range(0,50):
+            response = c.post(url) # now making POST request 50 times
+        occurences = string.count(str(response.__dict__), 'GetBarista.com')
+
+        self.assertEqual(occurences, 10) # but the maximum of shown requests reached so there are only 10
