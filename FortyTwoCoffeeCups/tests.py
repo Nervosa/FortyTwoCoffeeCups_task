@@ -1,8 +1,9 @@
-from django.template import Template, Context
 from django.test import TestCase
 from FortyTwoCoffeeCups.models import PersonBio, Http_Request_for_DB
 from django.core.urlresolvers import reverse
 from django.test import Client
+from django.template import Template, Context
+import string
 
 
 class PersonBioTest(TestCase):
@@ -27,11 +28,25 @@ class PersonBioTest(TestCase):
         self.assertContains(response, 'TestJabber@jabber.co')
 
     def test_custom_middleware(self):
+        url = reverse("home")
         c = Client(SERVER_NAME='GetBarista.com')
-        response = c.post('/')
+        response = c.post(url) # makinng a POST request
         self.assertEqual(response.status_code, 200)
         test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
         self.assertEqual(test_request[0].id, 1)
+
+        url = reverse("requests")
+        for i in range(0,4):
+            response = c.post(url) # and 4 times again
+        occurences = string.count(str(response.__dict__), 'GetBarista.com')
+
+        self.assertEqual(occurences, 5) # totally 5 occurences should we have on a page displaying requests
+
+        for i in range(0,50):
+            response = c.post(url) # now making POST request 50 times
+        occurences = string.count(str(response.__dict__), 'GetBarista.com')
+
+        self.assertEqual(occurences, 10) # but the maximum of shown requests reached so there are only 10
 
     def test_custom_context_processor(self):
         t = Template('{% if all_settings.DEBUG %}WE ARE USING DEBUG MODE{% else %}WE DO NOT USE DEBUG MODE{% endif %}')

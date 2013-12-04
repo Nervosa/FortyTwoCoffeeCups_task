@@ -15,6 +15,9 @@ class PersonBio(models.Model):
     def __unicode__(self):
         return self.name + " " + self.surname
 
+    class Meta:
+        ordering = ['id']
+
 
 class Http_Request_for_DB(models.Model):
 
