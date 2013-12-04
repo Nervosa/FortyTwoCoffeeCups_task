@@ -36,7 +36,7 @@ class PersonBioTest(TestCase):
         self.assertEqual(test_request[0].id, 1)
 
         url = reverse("requests")
-        for i in range(0,3):
+        for i in range(0,4):
             response = c.post(url) # and 4 times again
         occurences = string.count(str(response.__dict__), 'GetBarista.com')
 
