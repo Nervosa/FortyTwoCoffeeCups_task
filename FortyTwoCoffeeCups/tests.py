@@ -51,4 +51,4 @@ class PersonBioTest(TestCase):
         c = Client()
         url = reverse("home")
         response = c.get(url)
-        self.assertContains(response, 'all_settings.DEBUG')
+        self.assertContains(response.context, 'all_settings')
