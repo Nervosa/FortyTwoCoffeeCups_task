@@ -34,7 +34,7 @@ class PersonBioTest(TestCase):
         test_request = Http_Request_for_DB.objects.all().filter(server_name='GetBarista.com')
         self.assertEqual(test_request[0].id, 1)
 
-        url = reverse("show_requests")
+        url = reverse("requests")
         for i in range(0,4):
             response = c.post(url) # making POST request 4 times
         occurences = string.count(str(response.__dict__), 'GetBarista.com')
