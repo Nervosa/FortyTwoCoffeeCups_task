@@ -1,7 +1,9 @@
 from django.test import TestCase
+from django.test.utils import override_settings
 from FortyTwoCoffeeCups.models import PersonBio, Http_Request_for_DB
 from django.core.urlresolvers import reverse
 from django.test import Client
+from django.template import Context, Template
 import string
 
 
@@ -47,8 +49,14 @@ class PersonBioTest(TestCase):
 
         self.assertEqual(occurences, 10)  # but the maximum of shown requests reached so there are only 10
 
+    @override_settings(DEBUG=True)
     def test_custom_context_processor(self):
-        c = Client()
-        url = reverse("home")
-        response = c.get(url)
-        self.assertContains(response['request'], 'all_settings')
+        t = Template('{% if all_settings.DEBUG %}DEBUG_MODE_ON{% else %}DEBUG_MODE_OFF{% endif %}')
+        c = Context({})
+        self.assertEqual(t.render(c), 'DEBUG_MODE_ON')
+
+    @override_settings(DEBUG=False)
+    def test_custom_context_processor(self):
+        t = Template('{% if all_settings.DEBUG %}DEBUG_MODE_ON{% else %}DEBUG_MODE_OFF{% endif %}')
+        c = Context({})
+        self.assertEqual(t.render(c), 'DEBUG_MODE_OFF')
