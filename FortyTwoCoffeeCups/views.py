@@ -15,8 +15,8 @@ def home(request):
 def show_requests(request):
     quantity = Http_Request_for_DB.objects.all().count()
     if quantity > 10:
-        quantity = 10
+        quantity = 9
     else:
-        pass
+        quantity -= 1
     last_10_requests = Http_Request_for_DB.objects.all()[0:quantity]
     return {'last_10_requests': last_10_requests }
