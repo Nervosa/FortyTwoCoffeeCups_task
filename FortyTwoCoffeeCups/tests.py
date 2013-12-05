@@ -41,7 +41,7 @@ class PersonBioTest(TestCase):
             response = c.post(url)  # and 4 times again
         occurences = string.count(str(response.__dict__), 'GetBarista.com')
 
-        self.assertEqual(occurences, 5)  # totally 5 occurences should we have on a page displaying requests
+        self.assertEqual(occurences, 6)  # totally 6 occurences should we have on a page displaying requests
 
         for i in range(0, 50):
             response = c.post(url)  # now making POST request 50 times
