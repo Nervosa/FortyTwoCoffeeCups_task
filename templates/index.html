@@ -24,9 +24,11 @@
                 <br/>
                 <br/>
                 <label><b>Photo:</b></label>
+                {% if person.photo.url %}
                 <div class="user_photo">
                     <img src="{{ person.photo.url }}">
                 </div>
+                {% endif %}
             </div>
             <div class="right">
                 <h3>Contacts</h3>
