@@ -20,6 +20,7 @@ class PersonBioTest(TestCase):
                             bio='Test Bio',
                             email='TestEmail@test.com',
                             skype_id='TestSkype',
+                            photo = None,
                             jabber_id='TestJabber@jabber.co',
                             other_contacts='Test Other Contacts')
         new_bio.save()
