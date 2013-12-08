@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content_info %}
+<h1>42 Coffee Cups Test Assignment.</h1>
+<div id="main">
+    <div class="left">
+        <br/>
+        <label><b>Name: </b></label>{{ form.name }}
+        <br/>
+        <br/>
+        <label><b>Surname: </b></label>{{ form.surname }}
+        <br/>
+        <br/>
+        <label><b>Date of birth: </b></label>{{ form.date_of_birth }}
+        <br/>
+        <br/>
+        <label><b>Photo: </b></label>
+        {{ form.photo }}
+    </div>
+</div>
+{% endblock %}

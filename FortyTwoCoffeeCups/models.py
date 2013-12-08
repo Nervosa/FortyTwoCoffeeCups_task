@@ -10,6 +10,7 @@ class PersonBio(models.Model):
     email = models.EmailField()
     skype_id = models.CharField(max_length=50)
     jabber_id = models.CharField(max_length=50)
+    photo = models.ImageField(upload_to="user_photo", null=True)
     other_contacts = models.TextField(verbose_name="Other contacts")
 
     def __unicode__(self):
@@ -24,3 +25,6 @@ class Http_Request_for_DB(models.Model):
     server_name = models.CharField(max_length=100)
     server_port = models.CharField(max_length=15)
     other_info = models.CharField(max_length=5000)
+
+    class Meta:
+        ordering = ['id']

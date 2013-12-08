@@ -1,39 +1,48 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block body %}
+{% if current_user_active %}
+    <a style="float: right;" href="#">Logout</a>
+{% else %}
+    <a style="float: right;" href="{% url 'FortyTwoCoffeeCups.views.edit_user_info' %}">Login</a>
+{% endif %}
 {% block content_info %}
-<link rel="stylesheet" href="{% static "style.css" %}">
+<br/>
 <h1>{{ message }}</h1>
 {% if persons %}
     {% for person in persons %}
         <div id="main">
             <div class="left">
-                <h3>Personal info.</h3>
-                <label><b>Name:</b></label>{{ person.name }}
+                <br/>
+                <label><b>Name: </b></label>{{ person.name }}
                 <br/>
                 <br/>
-                <label><b>Last name:</b></label>{{ person.surname }}
+                <label><b>Last name: </b></label>{{ person.surname }}
                 <br/>
                 <br/>
-                <label><b>Date of birth:</b></label>{{ person.date_of_birth }}
+                <label><b>Date of birth: </b></label>{{ person.date_of_birth }}
                 <br/>
                 <br/>
-                <label><b>Bio:</b></label>{{ person.bio }}
-                <br/>
-                <br/>
+                <label><b>Photo:</b></label>
+                <div class="user_photo">
+                    <img src="{{ person.photo.url }}">
+                </div>
             </div>
             <div class="right">
                 <h3>Contacts</h3>
-                <label><b>E-mail:</b></label>{{ person.email }}
+                <label><b>E-mail: </b></label>{{ person.email }}
                 <br/>
                 <br/>
-                <label><b>Jabber:</b></label>{{ person.jabber_id }}
+                <label><b>Jabber: </b></label>{{ person.jabber_id }}
                 <br/>
                 <br/>
-                <label><b>Skype:</b></label>{{ person.skype_id }}
+                <label><b>Skype: </b></label>{{ person.skype_id }}
                 <br/>
                 <br/>
-                <label><b>Other contacts:</b></label><pre>{{ person.other_contacts }}</pre>
+                <label><b>Other contacts: </b></label><pre>{{ person.other_contacts }}</pre>
+                <br/>
+                <br/>
+                <label><b>Bio: </b></label>{{ person.bio }}
                 <br/>
                 <br/>
             </div>
@@ -44,6 +53,8 @@
 {% endif %}
 {% endblock content_info %}
 {% block requests_link %}
-<a href="{% url 'FortyTwoCoffeeCups.views.show_requests' %}">requests</a>
+<div>
+    <a href="{% url 'FortyTwoCoffeeCups.views.show_requests' %}">requests</a>
+</div>
 {% endblock requests_link %}
 {% endblock body %}

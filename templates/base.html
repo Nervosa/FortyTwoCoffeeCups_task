@@ -2,7 +2,10 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
-<head><title>{% block title %}Forty Two Coffee Cups Test{% endblock %}</title></head>
+<head>
+    <title>{% block title %}Forty Two Coffee Cups Test{% endblock %}</title></head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"
 <body>
     {% block body %}
         {% block content_info %}

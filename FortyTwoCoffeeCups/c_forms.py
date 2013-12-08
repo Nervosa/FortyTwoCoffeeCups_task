@@ -1,18 +1,25 @@
-from FortyTwoCoffeeCups import models
+from FortyTwoCoffeeCups.models import PersonBio
 from django import forms
-from django.forms import ModelForm, widgets
+from django.forms import ModelForm
 
 
 class PersonBioForm(ModelForm):
 
     class Meta:
-        model = models.PersonBio
+        model = PersonBio
+        fields = ['name',
+                  'surname',
+                  'date_of_birth',
+                  'bio',
+                  'email',
+                  'photo',
+                  'skype_id',
+                  'jabber_id',
+                  'other_contacts',
+                  ]
 
-    name = forms.CharField()
-    surname = forms.CharField()
-    date_of_birth = forms.DateField(input_formats=['%Y-%m-%d',])
-    bio = forms.Textarea()
-    email = forms.EmailField()
-    skype_id = forms.CharField()
-    jabber_id = forms.CharField()
-    other_contacts = forms.Textarea()
+
+class LoginForm(forms.Form):
+
+    username = forms.CharField(max_length=30)
+    password = forms.CharField(widget=forms.PasswordInput)

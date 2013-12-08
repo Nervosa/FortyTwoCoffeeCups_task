@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'login_style.css' %}">
+<div class="body-wrapper">
+    <div class="block">
+    <form id="login_form" method="post" action="/login/">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td>
+                    {{ form.username }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    {{ form.password }}
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Login">
+    </form>
+    </div>
+
+    <div class="helper"></div>
+
+</div>
